@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Tracker - Build Streaks</title>
+  <meta name="description" content="Free habit tracker. Tick your habits every day, build streaks and see your whole year in green squares." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Habit Tracker</h1>
+      <p class="subtitle">Small habits, every day. Build streaks and watch your year turn green.</p>
+    </header>
+
+    <!-- Today summary -->
+    <section class="card summary">
+      <div class="summary-top">
+        <div>
+          <p class="label" id="todayLabel">Today</p>
+          <p class="big" id="todayCount">0 / 0</p>
+          <p class="muted" id="todayText">Add your first habit below</p>
+        </div>
+        <div class="week-box">
+          <p class="label">Last 7 days</p>
+          <p class="mid" id="weekPct">--</p>
+        </div>
+      </div>
+      <div class="bar"><div class="bar-fill" id="todayBar"></div></div>
+    </section>
+
+    <!-- Habits -->
+    <section id="habitList"></section>
+    <p class="muted empty" id="emptyMsg">No habits yet. Start with one small habit you can do every day.</p>
+
+    <!-- Add / edit habit -->
+    <section class="card">
+      <h2 id="formTitle">Add a habit</h2>
+      <form id="habitForm" novalidate>
+        <label class="field">Habit name
+          <input type="text" id="name" maxlength="40" placeholder="e.g. Gym, Read 10 pages, Drink 3L water" autocomplete="off" />
+        </label>
+        <p class="label">Colour</p>
+        <div class="colours" id="colours" role="radiogroup" aria-label="Habit colour"></div>
+        <p class="error" id="error" role="alert"></p>
+        <div class="form-actions">
+          <button type="submit" class="btn primary" id="saveBtn">Add habit</button>
+          <button type="button" class="btn ghost" id="cancelBtn" hidden>Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Year view -->
+    <section class="card">
+      <div class="year-head">
+        <h2>Your year</h2>
+        <select id="yearHabit" aria-label="Show year for"></select>
+      </div>
+      <div class="year-scroll" id="yearScroll">
+        <div class="year-grid" id="yearGrid"></div>
+      </div>
+      <div class="legend">
+        <span class="muted">Less</span>
+        <span class="sq l0"></span><span class="sq l1"></span><span class="sq l2"></span><span class="sq l3"></span><span class="sq l4"></span>
+        <span class="muted">More</span>
+      </div>
+      <p class="muted" id="yearText"></p>
+    </section>
+
+    <section class="card how">
+      <h2>How it works</h2>
+      <p><b>Tick</b> a habit when you do it. Missed yesterday? Tap that day in the last-7-days row to fix it.</p>
+      <p><b>Current streak</b> counts days in a row up to today. If you haven’t ticked today yet, your streak from yesterday is kept until the day ends.</p>
+      <p><b>Your year</b> shows every day as a square. The darker the green, the more habits you completed that day.</p>
+      <p>Everything is saved on this device only. No login, nothing sent anywhere.</p>
+    </section>
+
+    <footer class="footer">Built by Vikas Kapuganti</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
